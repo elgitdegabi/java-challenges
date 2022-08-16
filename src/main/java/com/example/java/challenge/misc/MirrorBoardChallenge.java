@@ -1,23 +1,24 @@
-package com.example.java.challenge.interview;
+package com.example.java.challenge.misc;
 
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Draw a chess RxC board
+ * Draw a mirror RxC board
  * If row size is not equal to column size (R != C), throw an exception
  */
 @Slf4j
-public class ChessBoardChallenge {
+public class MirrorBoardChallenge {
     public static void main(String[] args) {
-        log.info("chess board start");
-        ChessBoard.printBoard(5, 5);
-        log.info("chess board end");
+        log.info("mirror board start");
+        MirrorBoard.printBoard(6, 6);
+        MirrorBoard.printBoard(5, 5);
+        log.info("mirror board end");
     }
 
     /**
-     * Chess board class
+     * Mirror board class
      */
-    private static class ChessBoard {
+    private static class MirrorBoard {
 
         /**
          * Prints board from given row size and column size
@@ -30,15 +31,20 @@ public class ChessBoardChallenge {
                 throw new IllegalArgumentException("row size and column size should be equal");
             }
 
+            log.info("-----------------------------------------------------------------------------------------------");
+            StringBuffer stringBuffer = new StringBuffer();
+
             for (int i = 0; i < rowSize; i++) {
-                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.delete(0, stringBuffer.length());
 
                 for (int j = 0; j < columnSize; j++) {
-                    stringBuffer.append((i % 2 == j % 2 ? "X" : " "));
+                    stringBuffer.append((i == j || (rowSize - 1 - i == j)) ? "X" : " ");
                 }
 
                 log.info(stringBuffer.toString());
             }
+
+            log.info("-----------------------------------------------------------------------------------------------");
         }
     }
 }

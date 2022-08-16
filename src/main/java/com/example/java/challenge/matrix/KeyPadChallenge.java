@@ -1,4 +1,4 @@
-package com.example.java.challenge.interview;
+package com.example.java.challenge.matrix;
 
 import lombok.extern.slf4j.Slf4j;
 
