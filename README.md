@@ -6,17 +6,30 @@ Please, free feel to reach out to me if you have other solutions or found some m
 ## Implemented challenges
 * CountingSortChallenge
 * FindMedianChallenge
+* JesseCookiesChallenge
 * MaximizeArrayValueChallenge
+* MaximumEvenSumChallenge
 * MinimaxSumChallenge
+* MinimumBribesChallenge
 * PlusMinusChallenge
+* QueueOrderChaosChallenge
 * TowerBreakersChallenge
 * UniqueIntegerChallenge
 * ZigZagChallenge
 * FlipMatrixChallenge
+* GridSquareChallenge
 * KeyPadChallenge
 * SquareMatrixDifferenceChallenge
+* BalancedBracketsChallenge
+* BrickBlockChallenge
 * CesarCipherChallenge
 * ChessBoardChallenge
 * MirrorBoardChallenge
 * PalindromeIndexChallenge
+* RecursiveDigitSumChallenge
+* SimpleTextEditorChallenge
+* SimpleTextEditorOptimizedChallenge
+* MergeSortedLinkedListChallenge
+* QueueTwoStacksChallenge
 * JavaChallengesApplication
+
