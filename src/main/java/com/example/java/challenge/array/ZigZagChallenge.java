@@ -3,6 +3,10 @@ package com.example.java.challenge.array;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Given an array of n distinct integers, transform the array into a zig-zag sequence by permuting the array elements.
@@ -34,25 +38,12 @@ public class ZigZagChallenge {
          * @return zig-zag array
          */
         public static void findZigZagSequence(final int [] a, final int n){
+            int middle = n /2; // switch between middle and last position
             Arrays.sort(a);
-            int mid = n /2;
-            int temp = a[mid];
-            a[mid] = a[n - 1];
-            a[n - 1] = temp;
 
-            int st = mid + 1;
-            int ed = n - 1 - 1;
-            while(st <= ed){
-                temp = a[st];
-                a[st] = a[ed];
-                a[ed] = temp;
-                st = st + 1;
-                ed = ed - 1;
-            }
-            for(int i = 0; i < n; i++){
-                if(i > 0) System.out.print(" ");
-                System.out.print(a[i]);
-            }
+            IntStream.range(0, a.length)
+                    .map(i -> i < middle? a[i]: a[a.length - 1 - (i - middle)])
+                    .forEach(value -> System.out.print(value + " "));
             System.out.println();
         }
     }
