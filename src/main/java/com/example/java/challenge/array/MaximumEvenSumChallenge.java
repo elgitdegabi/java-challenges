@@ -29,6 +29,8 @@ public class MaximumEvenSumChallenge {
         log.info("maximum even sum result: {}", MaximumEvenSum.getMaximumEvenSum(List.of(2, 3, 6, -5, 10, 1,1)));
         log.info("maximum even sum result: {}", MaximumEvenSum.getMaximumEvenSum(List.of(2, 3, 6, 4, 10, 1, 1)));
         log.info("maximum even sum result: {}", MaximumEvenSum.getMaximumEvenSum(List.of(-2, -3, -6, -4, -10, -1, -1)));
+        log.info("maximum even sum result: {}", MaximumEvenSum.getMaximumEvenSum(List.of(-1, -1, -1, -2)));
+        log.info("maximum even sum result: {}", MaximumEvenSum.getMaximumEvenSum(List.of(1, 2)));
         log.info("maximum even sum end");
     }
 
