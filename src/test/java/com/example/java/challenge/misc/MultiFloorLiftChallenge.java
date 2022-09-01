@@ -480,7 +480,7 @@ public class MultiFloorLiftChallenge {
     public static class MultiFloorLiftTest {
         @ParameterizedTest(name = "scenario: {0}")
         @MethodSource("basicTestCases")
-        void parameterizedTestCase1(final String scenario, final int[][] queue, final int size, final int[] expected) {
+        void parameterizedBasicTestCases(final String scenario, final int[][] queue, final int size, final int[] expected) {
             log.info("capacity: {} - expected: {}", size, expected);
             Assertions.assertArrayEquals(expected, MultiFloorLift.theLift(queue, size));
         }

@@ -18,7 +18,7 @@ public class TwoSumChallengeTest {
     @ParameterizedTest(name = "numbers: {0}, target: {1}, expected: {2}")
     @MethodSource("basicTestCases")
     @DisplayName("Basic tests")
-    void parameterizedTestCase1(int[] numbers, int target, int[] expected) {
+    void parameterizedBasicTestCases(int[] numbers, int target, int[] expected) {
         int[] result = TwoSumChallenge.twoSum(numbers.clone(), target);
 
         Assertions.assertNotNull(result, "Should return an array");

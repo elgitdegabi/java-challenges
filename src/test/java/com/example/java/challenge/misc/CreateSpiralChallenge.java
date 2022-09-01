@@ -66,7 +66,7 @@ public class CreateSpiralChallenge {
     public static class CreateSpiralTest {
         @ParameterizedTest(name = "size: {0}")
         @MethodSource("basicTestCases")
-        void parameterizedTestCase1(final int size, final int[][] expected) {
+        void parameterizedBasicTestCases(final int size, final int[][] expected) {
             Assertions.assertArrayEquals(expected, CreateSpiral.spiralizer(size));
         }
 

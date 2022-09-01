@@ -130,7 +130,7 @@ public class RailFenceCipherChallenge {
     public static class CreateSpiralTest {
         @ParameterizedTest(name = "text: {0} - rail: {1}")
         @MethodSource("basicTestCases")
-        void parameterizedTestCase1(final String text, final int rail, final String expected) {
+        void parameterizedBasicTestCases(final String text, final int rail, final String expected) {
             Assertions.assertEquals(expected, RailFenceCipher.encode(text, rail));
             Assertions.assertEquals(text, RailFenceCipher.decode(expected, rail));
         }

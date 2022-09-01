@@ -58,7 +58,7 @@ public class OrderStringByCharNumberChallenge {
     public static class OrderStringByCharNumberTest {
         @ParameterizedTest(name = "word: {0}")
         @MethodSource("basicTestCases")
-        void parameterizedTestCase1(final String words, final String expected) {
+        void parameterizedBasicTestCases(final String words, final String expected) {
             Assertions.assertEquals(expected, OrderStringByCharNumber.order(words));
         }
 

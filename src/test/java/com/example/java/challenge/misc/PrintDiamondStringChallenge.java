@@ -55,7 +55,7 @@ public class PrintDiamondStringChallenge {
     public static class PrintDiamondStringTest {
         @ParameterizedTest(name = "number: {0}")
         @MethodSource("basicTestCases")
-        void parameterizedTestCase1(final int number, final String expected) {
+        void parameterizedBasicTestCases(final int number, final String expected) {
             Assertions.assertEquals(expected, PrintDiamondString.print(number));
         }
 

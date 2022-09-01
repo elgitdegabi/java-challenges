@@ -57,7 +57,7 @@ public class BalancedParenthesesChallenge {
     public static class CreateSpiralTest {
         @ParameterizedTest(name = "text: {0}")
         @MethodSource("basicTestCases")
-        void parameterizedTestCase1(final String text, final boolean expected) {
+        void parameterizedBasicTestCases(final String text, final boolean expected) {
             Assertions.assertEquals(expected, BalancedParentheses.validParentheses(text));
         }
 

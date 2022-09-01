@@ -16,7 +16,7 @@ public class RomanNumberConverterChallengeTest {
 
     @ParameterizedTest(name = "number: {0} - roman: {1}")
     @MethodSource("basicTestCases")
-    void parameterizedTestCase1(final int number, final String expectedToRoman, final int expectedFromRoman) {
+    void parameterizedBasicTestCases(final int number, final String expectedToRoman, final int expectedFromRoman) {
         Assertions.assertEquals(expectedToRoman, RomanNumberConverterChallenge.RomanNumberConverter.toRoman(number));
         Assertions.assertEquals(expectedFromRoman, RomanNumberConverterChallenge.RomanNumberConverter.fromRoman(expectedToRoman));
     }
