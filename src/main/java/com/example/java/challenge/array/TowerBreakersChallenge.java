@@ -18,31 +18,19 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class TowerBreakersChallenge {
-    public static void main(String[] args) {
-        log.info("TowerBreakers start");
-        log.info("TowerBreakers - result: {}", TowerBreakers.towerBreakers(2, 6));
-        log.info("TowerBreakers - result: {}", TowerBreakers.towerBreakers(2, 2));
-        log.info("TowerBreakers - result: {}", TowerBreakers.towerBreakers(1, 4));
-        log.info("TowerBreakers end");
-    }
 
     /**
-     * TowerBreakers class
+     * Finds winner player from given parameters
+     *
+     * @param n int number of towers
+     * @param m tower size
+     * @return winner
      */
-    private static class TowerBreakers {
-
-        /**
-         * Finds winner player from given parameters
-         * @param n int number of towers
-         * @param m tower size size
-         * @return winner
-         */
-        public static int towerBreakers(final int n, final int m) {
-            if (m != 1 && n % 2 != 0) {
-                return 1;
-            } else {
-                return 2;
-            }
+    public static int towerBreakers(final int n, final int m) {
+        if (m != 1 && n % 2 != 0) {
+            return 1;
+        } else {
+            return 2;
         }
     }
 }

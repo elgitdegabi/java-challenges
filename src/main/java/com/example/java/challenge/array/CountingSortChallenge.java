@@ -24,30 +24,19 @@ import java.util.stream.IntStream;
  */
 @Slf4j
 public class CountingSortChallenge {
-    private static final int COUNT_RANGE = 4; // IMPORTANT: fix number range, for case 1 should be 0..3; for case 2: 0..100
-
-    public static void main(String[] args) {
-        log.info("counting sort start");
-        log.info("counting sort is: {}", CountingSort.calculate(List.of(1, 1, 1, 2, 3)));
-        log.info("counting sort end");
-    }
 
     /**
-     * Counting Sort class
+     * Calculates counting sorting based on given list
+     *
+     * @param countRange int limit of count range (from 0 to countRange)
+     * @param arr        {@link List<Integer>}
+     * @return {@link List<Integer>} counting sort
      */
-    private static class CountingSort {
+    public static List<Integer> calculate(final int countRange, final List<Integer> arr) {
+        Map<Integer, List<Integer>> countMap = arr.stream().collect(Collectors.groupingBy(Function.identity()));
+        List<Integer> resultList = new ArrayList<>();
+        IntStream.range(0, countRange).forEach(i -> resultList.add(countMap.getOrDefault(i, Collections.emptyList()).size()));
 
-        /**
-         * Calculates counting sorting based on given list
-         * @param arr {@link List<Integer>}
-         * @return {@link List<Integer>} counting sort
-         */
-        public static List<Integer> calculate(final List<Integer> arr) {
-            Map<Integer, List<Integer>> countMap = arr.stream().collect(Collectors.groupingBy(Function.identity()));
-            List<Integer> resultList = new ArrayList<>();
-            IntStream.range(0, COUNT_RANGE).forEach(i -> resultList.add(countMap.getOrDefault(i, Collections.emptyList()).size()));
-
-            return resultList;
-        }
+        return resultList;
     }
 }

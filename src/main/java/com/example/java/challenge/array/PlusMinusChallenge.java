@@ -15,32 +15,27 @@ import java.util.List;
  */
 @Slf4j
 public class PlusMinusChallenge {
-    public static void main(String[] args) {
-        log.info("plus minus start");
-        PlusMinus.calculate(List.of(-4, 3, -9, 0, 4, 1));
-        log.info("plus minus end");
-    }
 
     /**
-     * Plus minus class
+     * Calculates positive, negative and zero rate based on given list
+     *
+     * @param arr {@link List<Integer>}
+     * @return {@link String} with positive, negative and zero rates
      */
-    private static class PlusMinus {
+    public static String calculate(final List<Integer> arr) {
+        double positive = arr.stream().filter(i -> i.intValue() > 0).count();
+        double negative = arr.stream().filter(i -> i.intValue() < 0).count();
+        double zero = arr.size() - positive - negative;
 
-        /**
-         * Calculates positive, negative and zero rate based on given list
-         * @param arr {@link List<Integer>}
-         */
-        public static void calculate(final List<Integer> arr) {
-            double positive = arr.stream().filter(i -> i.intValue() > 0).count();
-            double negative = arr.stream().filter(i -> i.intValue() < 0).count();
-            double zero = arr.size() - positive - negative;
+        DecimalFormat decimalFormat = new DecimalFormat("0.00000");
+        decimalFormat.setRoundingMode(RoundingMode.HALF_EVEN);
 
-            DecimalFormat decimalFormat = new DecimalFormat("0.00000");
-            decimalFormat.setRoundingMode(RoundingMode.HALF_EVEN);
+        System.out.println(decimalFormat.format(positive / arr.size()));
+        System.out.println(decimalFormat.format(negative / arr.size()));
+        System.out.println(decimalFormat.format(zero / arr.size()));
 
-            System.out.println(decimalFormat.format(positive / arr.size()));
-            System.out.println(decimalFormat.format(negative / arr.size()));
-            System.out.println(decimalFormat.format(zero / arr.size()));
-        }
+        return decimalFormat.format(positive / arr.size()) + " "
+                + decimalFormat.format(negative / arr.size()) + " "
+                + decimalFormat.format(zero / arr.size());
     }
 }

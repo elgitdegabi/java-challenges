@@ -3,9 +3,6 @@ package com.example.java.challenge.array;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -19,32 +16,25 @@ import java.util.stream.IntStream;
  */
 @Slf4j
 public class ZigZagChallenge {
-    public static void main(String[] args) {
-        log.info("findZigZagSequence start");
-        ZigZagSequence.findZigZagSequence(new int[]{1, 4, 5, 3, 2}, 5);
-        ZigZagSequence.findZigZagSequence(new int[]{1, 2, 3, 4, 5, 6, 7}, 7);
-        log.info("findZigZagSequence end");
-    }
 
     /**
-     * ZigZagSequence class
+     * Finds zig-zag array from given array
+     *
+     * @param a int array
+     * @param n array size
+     * @return {@link String} zig-zag array
      */
-    private static class ZigZagSequence {
+    public static String findZigZagSequence(final int[] a, final int n) {
+        int middle = n / 2; // switch between middle and last position
+        Arrays.sort(a);
 
-        /**
-         * Finds zig-zag array from given array
-         * @param a int array
-         * @param n array size
-         * @return zig-zag array
-         */
-        public static void findZigZagSequence(final int [] a, final int n){
-            int middle = n /2; // switch between middle and last position
-            Arrays.sort(a);
+        StringBuffer stringBuffer = new StringBuffer();
+        IntStream.range(0, a.length)
+                .map(i -> i < middle ? a[i] : a[a.length - 1 - (i - middle)])
+                .forEach(value -> stringBuffer.append(value).append(" "));
 
-            IntStream.range(0, a.length)
-                    .map(i -> i < middle? a[i]: a[a.length - 1 - (i - middle)])
-                    .forEach(value -> System.out.print(value + " "));
-            System.out.println();
-        }
+        System.out.println(stringBuffer);
+
+        return stringBuffer.toString();
     }
 }

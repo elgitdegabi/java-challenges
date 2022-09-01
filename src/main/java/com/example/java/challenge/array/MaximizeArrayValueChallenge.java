@@ -12,67 +12,56 @@ import java.util.stream.IntStream;
  * • Choose any x such that 1 <= x <= arr[i]
  * • Set arr[i-1] to arr[i-1] + x
  * • Set arr[i] to arr[i] - x
- *
+ * <p>
  * Minimize the maximum value of arr using the operation and return the value
  */
 @Slf4j
 public class MaximizeArrayValueChallenge {
-    public static void main(String[] args) {
-        log.info("maximize array value start");
 
-        //List<Integer> arr = List.of(Integer.valueOf(3), Integer.valueOf(5), Integer.valueOf(15), Integer.valueOf(19));
-        List<Integer> arr = List.of(Integer.valueOf(1), Integer.valueOf(5), Integer.valueOf(7), Integer.valueOf(6));
+    /**
+     * Minimize Maximum Value from given array arr
+     *
+     * @param arr {@link List<Integer>}
+     * @return the minimize maximum value
+     */
+    public static int minimizeMaximumValue(final List<Integer> arr) {
+        int[] array = arr.stream().mapToInt(Integer::intValue).toArray();
 
-        MaximizeArrayValue.minimizeMaximumValue(arr);
+        int max = Arrays.stream(array).max().getAsInt();
+        int operation = 1;
 
-        log.info("maximize array value end");
+        while (getMaxIndex(array, max) > 0) {
+            log.info("-------------------------------------------------------------------------------------------");
+            log.info("operation #:{}, array before: {}", operation, array);
+
+            int i = getMaxIndex(array, max);
+            int x = getMaxIndex(array, Arrays.stream(array).filter(a -> a != Arrays.stream(array).max().getAsInt()).max().getAsInt());
+
+            array[i - 1] = array[i - 1] + (x + 1);
+            array[i] = array[i] - (x + 1);
+
+            log.info("operation #:{}, array after : {}", operation, array);
+
+            max = Arrays.stream(array).max().getAsInt();
+            operation++;
+        }
+
+        int minimizedMaximumValue = Arrays.stream(array).max().getAsInt();
+        log.info("-----------------------------------------------------------------------------------------------");
+        log.info("minimized maximum value: {}", minimizedMaximumValue);
+        log.info("-----------------------------------------------------------------------------------------------");
+
+        return minimizedMaximumValue;
     }
 
     /**
-     * Maximize array value class
+     * Gets index value from given max value
+     *
+     * @param array    array of int
+     * @param maxValue int
+     * @return index of max value
      */
-    private static class MaximizeArrayValue {
-
-        /**
-         * Minimize Maximum Value from given array arr
-         * @param arr {@link List<Integer>}
-         */
-        public static void minimizeMaximumValue(final List<Integer> arr) {
-            int[] array = arr.stream().mapToInt(Integer::intValue).toArray();
-
-            int max = Arrays.stream(array).max().getAsInt();
-            int operation = 1;
-
-            while (getMaxIndex(array, max) > 0) {
-                log.info("-------------------------------------------------------------------------------------------");
-                log.info("operation #:{}, array before: {}", operation, array);
-
-                int i = getMaxIndex(array, max);
-                int x = getMaxIndex(array, Arrays.stream(array).filter(a -> a != Arrays.stream(array).max().getAsInt()).max().getAsInt());
-
-                array[i - 1] = array[i - 1] + (x + 1);
-                array[i] = array[i] - (x + 1);
-
-                log.info("operation #:{}, array after : {}", operation, array);
-
-                max = Arrays.stream(array).max().getAsInt();
-                operation++;
-            }
-
-            int minimizedMaximumValue = Arrays.stream(array).max().getAsInt();
-            log.info("-----------------------------------------------------------------------------------------------");
-            log.info("minimized maximum value: {}", minimizedMaximumValue);
-            log.info("-----------------------------------------------------------------------------------------------");
-        }
-
-        /**
-         * Gets index value from given max value
-         * @param array array of int
-         * @param maxValue int
-         * @return index of max value
-         */
-        private static int getMaxIndex(final int[] array, int maxValue) {
-            return IntStream.range(0, array.length).filter(index -> maxValue == array[index]).findFirst().getAsInt();
-        }
+    private static int getMaxIndex(final int[] array, int maxValue) {
+        return IntStream.range(0, array.length).filter(index -> maxValue == array[index]).findFirst().getAsInt();
     }
 }
