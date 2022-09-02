@@ -26,6 +26,7 @@ public class QueueTwoStacksChallenge {
 
     /**
      * Copied from challenge's site
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -45,9 +46,10 @@ public class QueueTwoStacksChallenge {
 
     /**
      * Executes queue operations from given {@link List<Integer>}
+     *
      * @param data List<Integer>
      */
-    private static void execute(final List<Integer> data) {
+    public static void execute(final List<Integer> data) {
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i) == 1) {
                 firstStack.push(data.get(++i));
@@ -82,7 +84,7 @@ public class QueueTwoStacksChallenge {
      */
     private static void lifoToFifo() {
         if (secondStack.isEmpty()) {
-            while(!firstStack.isEmpty()) {
+            while (!firstStack.isEmpty()) {
                 secondStack.push(firstStack.pop());
             }
         }

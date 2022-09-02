@@ -56,6 +56,7 @@ public class MergeSortedLinkedListChallenge {
 
     /**
      * Copied implementation
+     *
      * @param node
      * @param sep
      * @param bufferedWriter
@@ -75,11 +76,12 @@ public class MergeSortedLinkedListChallenge {
 
     /**
      * Creates a merged sorted list from given lists
+     *
      * @param head1 {@link SinglyLinkedListNode}
      * @param head2 {@link SinglyLinkedListNode}
      * @return {@link SinglyLinkedListNode} sorted list
      */
-    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+    public static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
         List<Integer> sortedList = new ArrayList<>();
 
         SinglyLinkedListNode node1 = head1;
@@ -106,6 +108,7 @@ public class MergeSortedLinkedListChallenge {
     /**
      * Copied implementation
      * IMPORTANT: comment buffer reader & writer implementations -> just create two testing lists and print result list's elements
+     *
      * @param args
      * @throws IOException
      */

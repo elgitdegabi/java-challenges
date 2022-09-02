@@ -13,27 +13,14 @@ import java.time.format.DateTimeFormatter;
  */
 @Slf4j
 public class TimeConversionToMilitaryChallenge {
-    public static void main(String[] args) {
-        log.info("time conversion start");
-
-        final String currentTime = "12:01:00AM";
-        log.info("from: {} to: {}", currentTime, TimeConversionToMilitary.convert(currentTime));
-
-        log.info("time conversion end");
-    }
 
     /**
-     * Time conversion to military class
+     * Converts current time from AM/PM format to military format
+     *
+     * @param currentTime {@link String}
      */
-    private static class TimeConversionToMilitary {
-
-        /**
-         * Converts current time from AM/PM format to military format
-         * @param currentTime {@link String}
-         */
-        public static String convert(final String currentTime) {
-            LocalTime localTime = LocalTime.parse(currentTime, DateTimeFormatter.ofPattern("hh:mm:ssa"));
-            return localTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        }
+    public static String convert(final String currentTime) {
+        LocalTime localTime = LocalTime.parse(currentTime, DateTimeFormatter.ofPattern("hh:mm:ssa"));
+        return localTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
 }

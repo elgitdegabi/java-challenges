@@ -4,6 +4,7 @@ We have implemented some Java katas / challenges for code review sessions, train
 Please, free feel to reach out to me if you have other solutions or found some mistakes: gabelopment@gmail.com
 
 ## Implemented challenges
+* ArrayDiffChallenge
 * CountingSortChallenge
 * FindMedianChallenge
 * JesseCookiesChallenge
@@ -11,25 +12,37 @@ Please, free feel to reach out to me if you have other solutions or found some m
 * MaximumEvenSumChallenge
 * MinimaxSumChallenge
 * MinimumBribesChallenge
+* MissingLetterChallenge
 * PlusMinusChallenge
-* QueueOrderChaosChallenge
 * TowerBreakersChallenge
+* TwoSumChallenge
 * UniqueIntegerChallenge
 * ZigZagChallenge
+* DigPowChallenge
+* FindBlockNumberChallenge
 * FlipMatrixChallenge
 * GridSquareChallenge
 * KeyPadChallenge
 * SquareMatrixDifferenceChallenge
 * BalancedBracketsChallenge
+* BalancedParenthesesChallenge
 * BrickBlockChallenge
 * CesarCipherChallenge
 * ChessBoardChallenge
+* CreateSpiralChallenge
 * MirrorBoardChallenge
+* MultiFloorLiftChallenge
 * PalindromeIndexChallenge
+* PrintDiamondStringChallenge
+* RailFenceCipherChallenge
 * RecursiveDigitSumChallenge
+* RomanNumberConverterChallenge
 * SimpleTextEditorChallenge
 * SimpleTextEditorOptimizedChallenge
+* FacebookLikeChallenge
+* OrderStringByCharNumberChallenge
+* ReverseWordsChallenge
+* StringVowelCountChallenge
 * MergeSortedLinkedListChallenge
 * QueueTwoStacksChallenge
-* JavaChallengesApplication
-
+* TimeConversionToMilitaryChallenge
