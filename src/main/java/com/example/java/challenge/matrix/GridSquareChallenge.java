@@ -17,42 +17,29 @@ import java.util.List;
  */
 @Slf4j
 public class GridSquareChallenge {
-    public static void main(String[] args) {
-        log.info("GridSquare start");
-        log.info("GridSquare - result: {}", GridSquare.isInAscendingAlphabeticalOrder(List.of("abc", "lmp", "qrt")));
-        log.info("GridSquare - result: {}", GridSquare.isInAscendingAlphabeticalOrder(List.of("mpxz", "abcd", "wlmf")));
-        log.info("GridSquare - result: {}", GridSquare.isInAscendingAlphabeticalOrder(List.of("abc", "hjk", "mpq", "rtv")));
-        log.info("GridSquare end");
-    }
 
     /**
-     * GridSquare class
+     * Verifies if given list is in ascending alphabetical order
+     *
+     * @param grid {@link List<String>}
+     * @return YES or NO
      */
-    private static class GridSquare {
+    public static String isInAscendingAlphabeticalOrder(final List<String> grid) {
+        List<String> sortedList = new ArrayList();
 
-        /**
-         * Verifies if given list is in ascending alphabetical order
-         *
-         * @param grid {@link List<String>}
-         * @return YES or NO
-         */
-        public static String isInAscendingAlphabeticalOrder(final List<String> grid) {
-            List<String> sortedList = new ArrayList();
+        for (int i = 0; i < grid.size(); i++) {
+            char[] temp = grid.get(i).toCharArray();
+            Arrays.sort(temp);
+            sortedList.add(String.valueOf(temp));
+        }
 
-            for (int i = 0; i < grid.size(); i++) {
-                char[] temp = grid.get(i).toCharArray();
-                Arrays.sort(temp);
-                sortedList.add(String.valueOf(temp));
-            }
-
-            for (int i = 1; i < sortedList.size(); i++) {
-                for (int j = 0; j < sortedList.get(i).length(); j++) {
-                    if (sortedList.get(i - 1).charAt(j) > sortedList.get(i).charAt(j)) {
-                        return "NO";
-                    }
+        for (int i = 1; i < sortedList.size(); i++) {
+            for (int j = 0; j < sortedList.get(i).length(); j++) {
+                if (sortedList.get(i - 1).charAt(j) > sortedList.get(i).charAt(j)) {
+                    return "NO";
                 }
             }
-            return "YES";
         }
+        return "YES";
     }
 }

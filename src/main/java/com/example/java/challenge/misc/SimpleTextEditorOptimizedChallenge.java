@@ -40,9 +40,13 @@ public class SimpleTextEditorOptimizedChallenge {
 
     /**
      * Executes editor operations from given {@link String}
+     *
      * @param data {@link String}
+     * @return {@link String} printed characters
      */
-    private static void execute(final String data) {
+    public static String execute(final String data) {
+        StringBuffer printedChars = new StringBuffer();
+
         if (data.startsWith("1")) {
             append(data.substring(2));
         } else if (data.startsWith("2")) {
@@ -52,10 +56,13 @@ public class SimpleTextEditorOptimizedChallenge {
         } else if (data.startsWith("4")) {
             undo();
         }
+
+        return printedChars.toString();
     }
 
     /**
      * Appends given text to current string(previously save current string state in the stack)
+     *
      * @param text {@link String}
      */
     private static void append(final String text) {
@@ -65,6 +72,7 @@ public class SimpleTextEditorOptimizedChallenge {
 
     /**
      * Removes last N position from current string (previously save current string state in the stack)
+     *
      * @param position n position to be removed
      */
     private static void delete(final int position) {
@@ -74,6 +82,7 @@ public class SimpleTextEditorOptimizedChallenge {
 
     /**
      * Prints given position from current string
+     *
      * @param position n position to be removed
      */
     private static void print(final int position) {

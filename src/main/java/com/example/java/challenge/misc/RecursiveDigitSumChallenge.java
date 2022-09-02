@@ -14,49 +14,38 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class RecursiveDigitSumChallenge {
-    public static void main(String[] args) {
-        log.info("RecursiveDigitSum start");
-        log.info("RecursiveDigitSum - result: {}", RecursiveDigitSum.superDigit("148", 3));
-        log.info("RecursiveDigitSum - result: {}", RecursiveDigitSum.superDigit("9875", 4));
-        log.info("RecursiveDigitSum - result: {}", RecursiveDigitSum.superDigit("123", 3));
-        log.info("RecursiveDigitSum end");
+
+    /**
+     * Calculates super digit as sum of digits from given String number
+     * IMPORTANT: initial number is set as original number concatenated N times
+     *
+     * @param number {@link String} original number
+     * @param times  int quantity of times that original number should be concatenated
+     * @return super digit as sum of digits
+     */
+    public static int superDigit(final String number, final int times) {
+        long superDigit = superDigitNumber(number.toCharArray()) * times;
+
+        while (superDigit > 9) {
+            superDigit = superDigitNumber(String.valueOf(superDigit).toCharArray());
+        }
+
+        return (int) superDigit;
     }
 
     /**
-     * RecursiveDigitSum class
+     * Calculates super digit as sum of digits from given char array number
+     *
+     * @param number char array number
+     * @return super digit as sum of digits
      */
-    private static class RecursiveDigitSum {
+    private static long superDigitNumber(final char[] number) {
+        int value = 0;
 
-        /**
-         * Calculates super digit as sum of digits from given String number
-         * IMPORTANT: initial number is set as original number concatenated N times
-         * @param number {@link String} original number
-         * @param times int quantity of times that original number should be concatenated
-         * @return super digit as sum of digits
-         */
-        public static int superDigit(final String number, final int times){
-            long superDigit = superDigitNumber(number.toCharArray()) * times;
-
-            while (superDigit > 9) {
-                superDigit = superDigitNumber(String.valueOf(superDigit).toCharArray());
-            }
-
-            return (int) superDigit;
+        for (int i = 0; i < number.length; i++) {
+            value += Character.getNumericValue(number[i]);
         }
 
-        /**
-         * Calculates super digit as sum of digits from given char array number
-         * @param number char array number
-         * @return super digit as sum of digits
-         */
-        private static long superDigitNumber(final char[] number) {
-            int value = 0;
-
-            for (int i = 0; i < number.length; i++) {
-                value += Character.getNumericValue(number[i]);
-            }
-
-            return value;
-        }
+        return value;
     }
 }

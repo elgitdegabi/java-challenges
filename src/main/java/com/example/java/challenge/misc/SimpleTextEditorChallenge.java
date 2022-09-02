@@ -14,7 +14,6 @@ import java.util.Stack;
  * 3 k - Print the Kth character of S
  * 4 - Undo the last (not previously undone) operation of type 1 or 2, reverting to the state it was in prior to that operation.
  * For example:
- * For example:
  * Case 1: 8 -> "1 abc", "3 3", "2 3", "1 xy", "3 2", "4", "4", "3 1" -> c y a
  */
 @Slf4j
@@ -24,6 +23,7 @@ public class SimpleTextEditorChallenge {
 
     /**
      * Copied from challenge's site
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -42,10 +42,13 @@ public class SimpleTextEditorChallenge {
 
     /**
      * Executes editor operations from given {@link List<String>}
+     *
      * @param data List<Integer>
+     * @return {@link String} printed characters
      */
-    private static void execute(final List<String> data) {
+    public static String execute(final List<String> data) {
         Stack<String> stateStack = new Stack<>();
+        StringBuffer printedChars = new StringBuffer();
         StringBuffer currentString = new StringBuffer();
 
         for (int i = 0; i < data.size(); i++) {
@@ -59,6 +62,7 @@ public class SimpleTextEditorChallenge {
                     break;
                 case '3':
                     print(currentString, Integer.valueOf(data.get(i).substring(2)));
+                    printedChars.append(currentString.charAt(Integer.valueOf(data.get(i).substring(2)) - 1)).append(" ");
                     break;
                 case '4':
                     undo(currentString, stateStack);
@@ -67,13 +71,16 @@ public class SimpleTextEditorChallenge {
                     throw new IllegalArgumentException("Unsupported operation");
             }
         }
+
+        return printedChars.toString();
     }
 
     /**
      * Appends given text to current string (previously save current string state in the stack)
+     *
      * @param currentString {@link StringBuffer}
-     * @param stateStack {@link Stack<String>}
-     * @param text {@link String}
+     * @param stateStack    {@link Stack<String>}
+     * @param text          {@link String}
      */
     private static void append(final StringBuffer currentString, final Stack<String> stateStack, final String text) {
         stateStack.push(currentString.toString());
@@ -82,9 +89,10 @@ public class SimpleTextEditorChallenge {
 
     /**
      * Removes last N position from current string (previously save current string state in the stack)
+     *
      * @param currentString {@link StringBuffer}
-     * @param stateStack {@link Stack<String>}
-     * @param position n position to be removed
+     * @param stateStack    {@link Stack<String>}
+     * @param position      n position to be removed
      */
     private static void delete(final StringBuffer currentString, final Stack<String> stateStack, final int position) {
         stateStack.push(currentString.toString());
@@ -93,8 +101,9 @@ public class SimpleTextEditorChallenge {
 
     /**
      * Prints given position from current string
+     *
      * @param currentString {@link StringBuffer}
-     * @param position n position to be removed
+     * @param position      n position to be removed
      */
     private static void print(final StringBuffer currentString, final int position) {
         System.out.println(currentString.charAt(position - 1));
@@ -102,8 +111,9 @@ public class SimpleTextEditorChallenge {
 
     /**
      * Undo latest operation over current string (retrieves previous string from the stack)
+     *
      * @param currentString {@link StringBuffer}
-     * @param stateStack {@link Stack<String>}
+     * @param stateStack    {@link Stack<String>}
      */
     private static void undo(final StringBuffer currentString, final Stack<String> stateStack) {
         currentString.replace(0, currentString.length(), stateStack.pop());

@@ -13,36 +13,22 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class PalindromeIndexChallenge {
-    public static void main(String[] args) {
-        log.info("PalindromeIndex start");
-        log.info("PalindromeIndex is: {}", PalindromeIndex.calculate("aaab"));
-        log.info("PalindromeIndex is: {}", PalindromeIndex.calculate("baa"));
-        log.info("PalindromeIndex is: {}", PalindromeIndex.calculate("aaa"));
-        log.info("PalindromeIndex is: {}", PalindromeIndex.calculate("hgygsvlfwcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcflvsgygh"));
-        log.info("PalindromeIndex is: {}", PalindromeIndex.calculate("hgygsvlfcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwflvsgygh"));
-        log.info("PalindromeIndex end");
-    }
 
     /**
-     * PalindromeIndex class
+     * Calculates letter index to be removed from given {@link String} text to create a palindrome
+     *
+     * @param s {@link String} text
+     * @return int index to be removed
      */
-    private static class PalindromeIndex {
+    public static int calculate(final String s) {
+        String text = s.toLowerCase();
 
-        /**
-         * Calculates letter index to be removed from given {@link String} text to create a palindrome
-         * @param s {@link String} text
-         * @return int index to be removed
-         */
-        public static int calculate(final String s) {
-            String text = s.toLowerCase();
-
-            for (int i = 0, j = text.length() - 1; i < j; i++, j--) {
-                if (text.charAt(i) != text.charAt(j)) {
-                    return (calculate(text.substring(i + 1, j + 1)) == -1? i: j);
-                }
+        for (int i = 0, j = text.length() - 1; i < j; i++, j--) {
+            if (text.charAt(i) != text.charAt(j)) {
+                return (calculate(text.substring(i + 1, j + 1)) == -1 ? i : j);
             }
-
-            return -1;
         }
+
+        return -1;
     }
 }

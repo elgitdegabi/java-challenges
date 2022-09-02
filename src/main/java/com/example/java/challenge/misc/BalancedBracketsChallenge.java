@@ -19,84 +19,73 @@ import java.util.Stack;
  */
 @Slf4j
 public class BalancedBracketsChallenge {
-    public static void main(String[] args) {
-        log.info("BalancedBracket start");
-        log.info("BalancedBracket result: {}", BalancedBracket.isBalanced("{[()]}"));
-        log.info("BalancedBracket result: {}", BalancedBracket.isBalanced("{[(])}"));
-        log.info("BalancedBracket result: {}", BalancedBracket.isBalanced("{{[[(())]]}}"));
-        log.info("BalancedBracket result: {}", BalancedBracket.isBalanced("{{([])}}"));
-        log.info("BalancedBracket result: {}", BalancedBracket.isBalanced("{{)[](}}"));
-        log.info("BalancedBracket end");
+
+    /**
+     * Validates if given String is balanced
+     *
+     * @param s {@link String}
+     * @return {@link String} YES or NO
+     */
+    public static String isBalanced(final String s) {
+        if (s.length() < 2 || s.length() % 2 != 0) {
+            return "NO";
+        }
+
+        char[] text = s.toCharArray();
+        Stack<Character> openStack = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (isValidOpenChar(text[i])) {
+                openStack.push(text[i]);
+            }
+
+            if (isValidCloseChar(text[i])
+                    && (openStack.size() < 1
+                    || openStack.pop().charValue() != getPairCharFor(text[i]))) {
+                return "NO";
+            }
+        }
+
+        return (openStack.size() < 1 ? "YES" : "NO");
     }
 
     /**
-     * BalancedBracket class
+     * Validates if given char is a valid open char
+     *
+     * @param candidate given char
+     * @return true or false
      */
-    private static class BalancedBracket {
+    private static boolean isValidOpenChar(final char candidate) {
+        return (candidate == '{' || candidate == '[' || candidate == '(');
+    }
 
-        /**
-         * Validates if given String is balanced
-         * @param s {@link String}
-         * @return {@link String} YES or NO
-         */
-        public static String isBalanced(final String s) {
-            if (s.length() < 2 || s.length() % 2 != 0) {
-                return "NO";
-            }
+    /**
+     * Validates if given char is a valid close char
+     *
+     * @param candidate given char
+     * @return true or false
+     */
+    private static boolean isValidCloseChar(final char candidate) {
+        return (candidate == '}' || candidate == ']' || candidate == ')');
+    }
 
-            char[] text = s.toCharArray();
-            Stack<Character> openStack = new Stack<>();
-
-            for (int i = 0; i < s.length(); i++) {
-                if (isValidOpenChar(text[i])) {
-                    openStack.push(text[i]);
-                }
-
-                if (isValidCloseChar(text[i])
-                        && (openStack.size() < 1
-                        || openStack.pop().charValue() != getPairCharFor(text[i]))) {
-                    return "NO";
-                }
-            }
-
-            return (openStack.size() < 1? "YES": "NO");
+    /**
+     * Returns valid open char for given close char
+     *
+     * @param candidate given char
+     * @return pair open char or blank
+     */
+    private static char getPairCharFor(final char candidate) {
+        if (candidate == '}') {
+            return '{';
+        }
+        if (candidate == ']') {
+            return '[';
+        }
+        if (candidate == ')') {
+            return '(';
         }
 
-        /**
-         * Validates if given char is a valid open char
-         * @param candidate given char
-         * @return true or false
-         */
-        private static boolean isValidOpenChar(final char candidate) {
-            return (candidate == '{' || candidate == '[' || candidate == '(');
-        }
-
-        /**
-         * Validates if given char is a valid close char
-         * @param candidate given char
-         * @return true or false
-         */
-        private static boolean isValidCloseChar(final char candidate) {
-            return (candidate == '}' || candidate == ']' || candidate == ')');
-        }
-
-        /**
-         * Returns valid open char for given close char
-         * @param candidate given char
-         * @return pair open char or blank
-         */
-        private static char getPairCharFor(final char candidate) {
-            if (candidate == '}') {
-                return '{';
-            }
-            if (candidate == ']') {
-                return '[';
-            }
-            if (candidate == ')') {
-                return '(';
-            }
-
-            return ' ';
-        }
+        return ' ';
     }
 }
