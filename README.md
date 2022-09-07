@@ -41,6 +41,7 @@ Please, free feel to reach out to me if you have other solutions or found some m
 * RomanNumberConverterChallenge
 * SimpleTextEditorChallenge
 * SimpleTextEditorOptimizedChallenge
+* BookLargestWordChallenge
 * FacebookLikeChallenge
 * OrderStringByCharNumberChallenge
 * ReverseWordsChallenge
