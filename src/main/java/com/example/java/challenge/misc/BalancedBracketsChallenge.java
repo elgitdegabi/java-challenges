@@ -27,6 +27,22 @@ public class BalancedBracketsChallenge {
      * @return {@link String} YES or NO
      */
     public static String isBalanced(final String s) {
+        String tmp = s;
+        while (tmp.contains("()") || tmp.contains("[]") || tmp.contains("{}")) {
+            tmp = tmp.replaceAll("\\(\\)", "")
+                    .replaceAll("\\[\\]", "")
+                    .replaceAll("\\{\\}", "");
+        }
+        return (tmp.length() == 0 ? "YES" : "NO");
+    }
+
+    /**
+     * Validates if given String is balanced
+     *
+     * @param s {@link String}
+     * @return {@link String} YES or NO
+     */
+    public static String isBalancedObsolete(final String s) {
         if (s.length() < 2 || s.length() % 2 != 0) {
             return "NO";
         }
