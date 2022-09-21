@@ -30,8 +30,12 @@ public class BaseBallWiredPointsChallengeTest {
                 arguments(new String[]{}, 0),
                 arguments(new String[]{"5"}, 5),
                 arguments(new String[]{"C", "D", "+"}, 0),
+                arguments(new String[]{"5", "C"}, 0),
+                arguments(new String[]{"5", "C", "D"}, 0),
+                arguments(new String[]{"5", "C", "2", "D"}, 6),
                 arguments(new String[]{"5", "2", "C", "D", "+"}, 30),
-                arguments(new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"}, 27)
+                arguments(new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"}, 27),
+                arguments(new String[]{"-50000000000", "50000000001"}, 1)
         );
     }
 }
