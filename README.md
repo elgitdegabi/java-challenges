@@ -5,7 +5,8 @@ Please, free feel to reach out to me if you have other solutions or found some m
 
 ## Implemented challenges
 * ArrayDiffChallenge
-* BaseBallWiredPointsChallenge  
+* BaseBallWiredPointsChallenge
+* BookSellerChallenge  
 * CountingSortChallenge
 * FindMedianChallenge
 * JesseCookiesChallenge
@@ -21,7 +22,8 @@ Please, free feel to reach out to me if you have other solutions or found some m
 * ZigZagChallenge
 * DigPowChallenge
 * FindBlockNumberChallenge
-* HugeFibonacciNumberChallenge  
+* HugeFibonacciNumberChallenge
+* IntegerDeepChallenge  
 * FlipMatrixChallenge
 * GridSquareChallenge
 * KeyPadChallenge
@@ -32,6 +34,7 @@ Please, free feel to reach out to me if you have other solutions or found some m
 * CesarCipherChallenge
 * ChessBoardChallenge
 * CreateSpiralChallenge
+* HandShakeProblemChallenge  
 * MirrorBoardChallenge
 * MultiFloorLiftChallenge
 * PalindromeIndexChallenge
@@ -43,6 +46,7 @@ Please, free feel to reach out to me if you have other solutions or found some m
 * SimpleTextEditorChallenge
 * SimpleTextEditorOptimizedChallenge
 * BookLargestWordChallenge
+* DuplicateEncoderChallenge  
 * FacebookLikeChallenge
 * OrderStringByCharNumberChallenge
 * ReverseWordsChallenge
