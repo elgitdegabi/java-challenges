@@ -6,7 +6,8 @@ Please, free feel to reach out to me if you have other solutions or found some m
 ## Implemented challenges
 * ArrayDiffChallenge
 * BaseBallWiredPointsChallenge
-* BookSellerChallenge  
+* BookSellerChallenge
+* CoinFreeChallenge  
 * CountingSortChallenge
 * FindMedianChallenge
 * JesseCookiesChallenge
@@ -30,6 +31,7 @@ Please, free feel to reach out to me if you have other solutions or found some m
 * SquareMatrixDifferenceChallenge
 * BalancedBracketsChallenge
 * BalancedParenthesesChallenge
+* BookPagesChallenge  
 * BrickBlockChallenge
 * CesarCipherChallenge
 * ChessBoardChallenge
